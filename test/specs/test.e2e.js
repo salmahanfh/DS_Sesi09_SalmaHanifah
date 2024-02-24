@@ -4,43 +4,43 @@ const ProductPage = require('../pageobjects/product.page')
 const CartPage = require('../pageobjects/cart.page')
 
 describe('Swag Labs', () => {
-    it('should login with standard_user', async () => {
+    it('should login with standard_user credentials', async () => {
         await LoginPage.open()
-        await LoginPage.login1()
+        await LoginPage.login(process.env.USERNAME_STANDARD_USER, process.env.PASSWORD_SAUCEDEMO)
         await HomePage.validateHomePage()
     })
 
-    it('should get login error with locked_out_user', async () => {
+    it('should get login error with locked_out_user credentials', async () => {
         await LoginPage.open()
-        await LoginPage.login2()
+        await LoginPage.login(process.env.USERNAME_LOCKED_OUT_USER, process.env.PASSWORD_SAUCEDEMO)
         await LoginPage.validateLockedOutUserError()
     })
 
-    it('should get login with visual_user', async () => {
+    it('should get login with visual_user credentials', async () => {
         await LoginPage.open()
-        await LoginPage.login3()
+        await LoginPage.login(process.env.USERNAME_VISUAL_USER, process.env.PASSWORD_SAUCEDEMO)
         await HomePage.validateHomePage()
     })
 
-    it('should see product detail page', async () => {
+    it('should get to see product detail page', async () => {
         await LoginPage.open()
-        await LoginPage.login1()
+        await LoginPage.login(process.env.USERNAME_STANDARD_USER, process.env.PASSWORD_SAUCEDEMO)
         await HomePage.open()
         await HomePage.clickProduct()
         await ProductPage.validateProductDetail()
     })
 
-    it('should see cart page' , async () => {
+    it('should get to see cart page' , async () => {
         await LoginPage.open()
-        await LoginPage.login1()
+        await LoginPage.login(process.env.USERNAME_STANDARD_USER, process.env.PASSWORD_SAUCEDEMO)
         await HomePage.open()
         await HomePage.cart()
         await CartPage.validateCartPage()
     })
 
-    it('should add cart product total' , async () => {
+    it('should get to add cart product total' , async () => {
         await LoginPage.open()
-        await LoginPage.login1()
+        await LoginPage.login(process.env.USERNAME_STANDARD_USER, process.env.PASSWORD_SAUCEDEMO)
         await HomePage.open()
         await HomePage.clickAddCart()
         await HomePage.validateAddToCart()
