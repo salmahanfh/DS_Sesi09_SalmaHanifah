@@ -1,5 +1,7 @@
 const LoginPage = require('../pageobjects/login.page')
 const HomePage = require('../pageobjects/home.page')
+const ProductPage = require('../pageobjects/product.page')
+const CartPage = require('../pageobjects/cart.page')
 
 describe('Swag Labs', () => {
     it('should login with standard_user', async () => {
@@ -12,5 +14,17 @@ describe('Swag Labs', () => {
         await LoginPage.open()
         await LoginPage.login()
         await LoginPage.validateLockedOutUserError()
+    })
+
+    // Not For Now
+    // it('should see product detail', async () => {
+    //     await HomePage.clickproduct()
+    //     await ProductPage.validateProductDetail()
+    // })
+
+    it('should see cart page' , async () => {
+        await HomePage.open()
+        await HomePage.cart()
+        await CartPage.validateCartPage()
     })
 })
