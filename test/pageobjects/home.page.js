@@ -16,7 +16,7 @@ class HomePage extends Page {
         expect(this.iconCart).toBeDisplayed();
     }
     
-    async clickproduct() {
+    async clickProduct() {
         await this.txtProduct.click();
     }
 

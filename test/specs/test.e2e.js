@@ -18,12 +18,15 @@ describe('Swag Labs', () => {
 
     // Not For Now
     // it('should see product detail', async () => {
-    //     await HomePage.clickproduct()
+    //     await HomePage.clickProduct()
     //     await ProductPage.validateProductDetail()
     // })
 
     it('should see cart page' , async () => {
+        await LoginPage.open()
+        await LoginPage.login()
         await HomePage.open()
+        //mulai error dari code dibawah
         await HomePage.cart()
         await CartPage.validateCartPage()
     })
